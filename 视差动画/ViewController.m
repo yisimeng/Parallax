@@ -10,6 +10,7 @@
 #import "ParallaxTableViewCell.h"
 #import "SeparateImageView.h"
 #import "AnimationTableViewCell.h"
+#import "TextParallaxView.h"
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView * tableView;
 @end
@@ -27,11 +28,6 @@ int arraySum (NSMutableArray * array){
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    UIProgressView * progress = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleBar];
-//    progress.frame = CGRectMake(10, 100, 300, 30);
-//    progress.backgroundColor = [UIColor redColor];
-//    [progress setProgress:0.5 animated:YES];
-//    [self.view addSubview:progress];
     
 //    NSMutableArray * B = [NSMutableArray arrayWithArray: @[@1,@200,@300,@400,@5000,@6000,@70000,@80000,@90000]];
 //    NSMutableArray * A = [NSMutableArray array];
@@ -59,14 +55,18 @@ int arraySum (NSMutableArray * array){
 //    imageView.BgImage = [UIImage imageNamed:@"1"];
 //    [self.view addSubview:imageView];
     
-    
-    _tableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStylePlain];
-    _tableView.dataSource = self;
-    _tableView.delegate = self;
-    _tableView.rowHeight = 250;
-    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.view addSubview:_tableView];
+/// 图片视差
+//    _tableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStylePlain];
+//    _tableView.dataSource = self;
+//    _tableView.delegate = self;
+//    _tableView.rowHeight = 250;
+//    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    [self.view addSubview:_tableView];
 
+    //文字视差
+    NSArray * titleArr = @[@"test1"];
+    TextParallaxView * change = [[TextParallaxView alloc]initWithFrame:CGRectMake(100, 200, 200, 100) andTitleArr:titleArr];
+    [self.view addSubview:change];
     
 //    NSString *path = [[NSBundle mainBundle] pathForResource:@"a" ofType:@"json"];
 //    NSLog(@"%@,%d",path,[[NSFileManager defaultManager] fileExistsAtPath:path]);
